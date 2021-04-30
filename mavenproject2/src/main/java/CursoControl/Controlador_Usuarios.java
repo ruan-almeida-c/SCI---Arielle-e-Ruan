@@ -201,4 +201,14 @@ public class Controlador_Usuarios {
                 
         }
     }
+
+    public ArrayList<Aluno> getListaAluno() {
+        return listaAluno;
+    }
+
+    public ArrayList<Professor> getListaProf() {
+        return listaProf;
+    }
+    
+    
 }
