@@ -14,7 +14,7 @@ public class Controlador_Aulas {
         this.ListaDeAulas = new ArrayList<>();
     }
     
-    public void adicionarAulas(char Id, Professor professor){
+    public void adicionarAula(char Id, Professor professor){
         ListaDeAulas.add(new Aulas(Id, professor));
     }
     public Aulas consultarAulas(char Id){
