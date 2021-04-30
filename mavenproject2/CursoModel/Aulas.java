@@ -1,9 +1,4 @@
 package CursoModel;
-<<<<<<< HEAD
-
-import java.util.Date;
-=======
->>>>>>> a0838238d4316e667873f10f2e14f6a49774202e
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;

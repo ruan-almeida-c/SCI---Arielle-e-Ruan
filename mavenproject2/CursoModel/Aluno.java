@@ -1,11 +1,5 @@
 package CursoModel;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-
-
-=======
->>>>>>> a0838238d4316e667873f10f2e14f6a49774202e
 public class Aluno extends Pessoa {
 	private String email;
 	private int codigo;
