@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 /*
 import java.io.FileOutputStream;
 import org.apache.poi.hssf.usermodel.XSSFWorkbook;
 =======
 package CursoModel;
->>>>>>> e98750504c81b5bc03b477d20374cd93aaf95418
+
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
