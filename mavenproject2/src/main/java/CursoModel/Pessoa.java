@@ -1,3 +1,4 @@
+package CursoModel;
 
 public abstract class Pessoa {
 	private String Nome;

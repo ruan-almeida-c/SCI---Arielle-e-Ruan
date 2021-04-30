@@ -1,3 +1,5 @@
+package CursoModel;
+
 
 public class Aluno extends Pessoa {
 	private String email;

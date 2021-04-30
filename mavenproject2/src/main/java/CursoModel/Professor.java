@@ -1,3 +1,5 @@
+package CursoModel;
+
 
 public class Professor extends Pessoa{
 	private double valorHora;

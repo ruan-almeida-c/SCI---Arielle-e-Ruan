@@ -1,17 +1,27 @@
+package CursoModel;
+
 import java.util.Date;
 
 
 public class Aulas {
+    private final char Id;
     private Date data;
     private Date hInicio;
     private Date hTermino;
     private double Custo;
     private Turma turma;
     private Professor professor;
-    
+
+    public Aulas(char Id, Professor professor) {
+        this.professor = professor;
+        this.Id = Id;
+    }
     
     public double CustoTotal(){
         return (this.Custo + this.professor.getValorHora());
+    }
+    public char getId(){
+        return this.Id;
     }
     public Date getData(){
         return this.data;
@@ -50,4 +60,8 @@ public class Aulas {
         this.professor = professor;
     }
     
+    public String toString(){
+        return "Id: " + this.Id + " data: " + this.data + " Hora de Inicio: " + this.hInicio + " Hora de fim: " 
+                + this.hTermino + " Custo: " + this.Custo + " Turma: " + this.turma + " Professor: " + this.professor;
+    }
 }

@@ -1,3 +1,4 @@
+package CursoControl;
 
 public class Controlador_Usuarios {
 	public void CadastroAluno() {
