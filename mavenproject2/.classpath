@@ -24,4 +24,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
+        </classpathentry>
+        <classpathentry kind="src" output="target/classes" path="/usr/share/">
+        </classpathentry>    
+	<classpathentry kind="con" path="/usr/share/java/jakarta-poi-3.0.2.jar">
+        </classpathentry>    
 </classpath>

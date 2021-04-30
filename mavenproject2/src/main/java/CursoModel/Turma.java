@@ -1,6 +1,10 @@
 package CursoModel;
+<<<<<<< HEAD
 
+=======
+>>>>>>> e98750504c81b5bc03b477d20374cd93aaf95418
 import java.time.LocalDateTime;
+
 public class Turma {
 	private String id;
 	private LocalDateTime dataInicio;

@@ -1,3 +1,4 @@
+package CursoControl;
 
 public class Controlador_Turma {
 	public void RegistrarNota() {
