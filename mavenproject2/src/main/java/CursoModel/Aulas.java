@@ -1,13 +1,14 @@
 package CursoModel;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 
 
 public class Aulas {
     private final char Id;
-    private Date data;
-    private Date hInicio;
-    private Date hTermino;
+    private LocalDateTime dataInicio;
+    private LocalDateTime dataFim;
     private double Custo;
     private Turma turma;
     private Professor professor;
@@ -18,19 +19,19 @@ public class Aulas {
     }
     
     public double CustoTotal(){
-        return (this.Custo + this.professor.getValorHora());
+        double valorInicio = this.dataInicio.toEpochSecond(ZoneOffset.UTC);        
+        double valorFim = this.dataFim.toEpochSecond(ZoneOffset.UTC);
+        
+        return ((valorFim - valorInicio)/3600 + this.Custo);
     }
     public char getId(){
         return this.Id;
     }
-    public Date getData(){
-        return this.data;
+    public LocalDateTime getDataInicio(){
+        return this.dataInicio;
     }
-    public Date getHInicio(){
-        return this.hInicio;
-    }
-    public Date  getHTermino(){
-        return this.hTermino;
+    public LocalDateTime  getDataFim(){
+        return this.dataFim;
     }
     public double getCusto(){
         return this.Custo;
@@ -41,14 +42,11 @@ public class Aulas {
     public Professor getProfessor(){
         return this.professor;
     }
-    public void setData(Date data){
-        this.data = data;
+    public void setDataInicio(int ano, int mes, int dia, int hora, int min){
+        this.dataInicio = LocalDateTime.of(ano, mes, dia, hora, min);
     }
-    public void setHInicio(Date hInicio){
-        this.hInicio = hInicio;
-    }
-    public void  setHTermino(Date hTermino){
-        this.hTermino = hTermino;
+    public void  setDataFim(int ano, int mes, int dia, int hora, int min){
+        this.dataFim = LocalDateTime.of(ano, mes, dia, hora, min);
     }
     public void setCusto(double custo){
         this.Custo = custo;
@@ -61,7 +59,7 @@ public class Aulas {
     }
     
     public String toString(){
-        return "Id: " + this.Id + " data: " + this.data + " Hora de Inicio: " + this.hInicio + " Hora de fim: " 
-                + this.hTermino + " Custo: " + this.Custo + " Turma: " + this.turma + " Professor: " + this.professor;
+        return "Id: " + this.Id + " data: " + this.dataInicio.getDayOfMonth()+"/"+this.dataInicio.getMonthValue()+ "/" + this.dataInicio.getYear() + " Hora de Inicio: " + this.dataInicio.getHour()+":"+this.dataInicio.getMinute() + " Hora de fim: " 
+                + this.dataFim.getHour()+":"+this.dataFim.getMinute() + " Custo: " + this.Custo + " Turma: " + this.turma + " Professor: " + this.professor;
     }
 }
