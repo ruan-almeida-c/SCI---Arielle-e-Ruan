@@ -4,7 +4,6 @@ import CursoModel.Aulas;
 import CursoModel.Professor;
 import CursoModel.Turma;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 
@@ -16,7 +15,7 @@ public class Controlador_Aulas {
     }
     
     public void adicionarAulas(char Id, Professor professor){
-        ListaDeAulas.add( new Aulas(Id, professor));
+        ListaDeAulas.add(new Aulas(Id, professor));
     }
     public Aulas consultarAulas(char Id){
         return ListaDeAulas.get(Id);
@@ -26,7 +25,7 @@ public class Controlador_Aulas {
         ArrayList<Aulas> ListaTemp = new ArrayList<>();
         
         ListaDeAulas.forEach(aula -> {
-            if(aula.getDataInicio().getMonthValue() == mes && aula.getDataInicio().getYear() == ano){
+            if(aula.getDataInicio().getMonthValue() >= mes && aula.getDataInicio().getYear() >= ano){
                 ListaTemp.add(aula);
             }
         });
@@ -34,11 +33,11 @@ public class Controlador_Aulas {
         return ListaTemp;
     }
     
-    public ArrayList<Aulas> consultarAulas(int mes){
+    public ArrayList<Aulas> consultarAulas(int ano){
         ArrayList<Aulas> ListaTemp = new ArrayList<>();
         
         ListaDeAulas.forEach(aula -> {
-            if(aula.getDataInicio().getMonthValue() == mes){
+            if(aula.getDataInicio().getYear()>= ano){
                 ListaTemp.add(aula);
             }
         });

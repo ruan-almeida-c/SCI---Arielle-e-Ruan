@@ -1,29 +1,27 @@
-<<<<<<< HEAD
-/*
-import java.io.FileOutputStream;
-import org.apache.poi.hssf.usermodel.XSSFWorkbook;
-=======
 package CursoModel;
->>>>>>> e98750504c81b5bc03b477d20374cd93aaf95418
-
-import CursoControl.Controlador_Aulas;
+import CursoModel.Aulas;
 import CursoModel.Turma;
 
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import  org.apache.poi.hssf.usermodel.HSSFSheet;
 import  org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import  org.apache.poi.hssf.usermodel.HSSFRow;
 
 
 public class Relatorio {
-    public void getMensal(int mes, int ano, ArrayList<Aulas> aulas){
-        int cont=0;
-        GregorianCalendar gc =new GregorianCalendar();
+    private double custo=0, VaiAcontecer=0, valor=0;
+    private int i;
+    public Relatorio(){
+    }
+    
+    
+    
+    public void getMensal(int mes, int ano, ArrayList<Aulas> aulas, ArrayList<Turma> turmas){
         try{
+            
             // local do arquivo
             String PathTillProject = System.getProperty("user.dir");
             HSSFWorkbook workbook=new HSSFWorkbook();
@@ -38,16 +36,25 @@ public class Relatorio {
             
             // definindo os valores das linhas
             aulas.forEach(aula -> {
-                HSSFRow row=   sheet.createRow((short)1);
-                row.createCell(0).setCellValue(aula.getDataInicio());
-                row.createCell(1).setCellValue(aula.getTurma().getPreco() * sizof(aula.getTurma().getListaAlunos()));
-                row.createCell(1).setCellValue(fim);
-                row.createCell(1).setCellValue(fim);
-  
-        });
+                if(aula.getDataInicio().getMonthValue() == mes && aula.getDataInicio().getDayOfYear() == ano){
+                custo = aula.CustoTotal();
+                }
+                if(aula.getDataInicio().getMonthValue() > mes && aula.getDataInicio().getDayOfYear() > ano){
+                    VaiAcontecer = aula.getCusto();
+                }
+            });
             
+            turmas.forEach(turma -> {
+                //valor = turma.getPreco() * turma.getQntAluno();
+            });
+            
+             HSSFRow row=   sheet.createRow((short)1);
+                row.createCell(0).setCellValue(mes + "/" + ano);
+                row.createCell(1).setCellValue(valor);
+                row.createCell(2).setCellValue(custo);
+                row.createCell(3).setCellValue(VaiAcontecer);
 
-            FileOutputStream fileOut = new FileOutputStream(PathTillProject + "/src/Export.xls");
+            FileOutputStream fileOut = new FileOutputStream(PathTillProject + "/src/ExportMensal.xls");
             workbook.write(fileOut);
             fileOut.close();
             System.out.println("Seu arquivo excel foi gerado!");
@@ -58,8 +65,51 @@ public class Relatorio {
         }
     }
     
-    public void getAnual(Date anoInicio, Date anoFim){
+    public void getAnual(int ano, ArrayList<Aulas> aulas, ArrayList<Turma> turmas){
+        
+        try{
+            // local do arquivo
+            String PathTillProject = System.getProperty("user.dir");
+            HSSFWorkbook workbook=new HSSFWorkbook();
+            HSSFSheet sheet =  workbook.createSheet("Relatorio Mensal");  
+            
+            // criando as Colunas
+            HSSFRow rowhead = sheet.createRow((short)0);
+            rowhead.createCell(0).setCellValue("Data");
+            rowhead.createCell(1).setCellValue("Valor arrecadado nas Turmas");
+            rowhead.createCell(2).setCellValue("gasto já acontecido");
+            rowhead.createCell(3).setCellValue("gasto ainda a acontecer");
+            
+            // definindo os valores das linhas
+            
+            for(i=1; i<=12; i++){
+            aulas.forEach(aula -> {
+                custo = aula.CustoTotal();
+                    if(/*aula.getDataInicio().getMonthValue() > i && aula.getDataInicio().getDayOfYear() > ano*/ true){
+                    VaiAcontecer = aula.getCusto();
+                }
+            });
+            
+            turmas.forEach(turma -> {
+                //valor = turma.getPreco() * turma.getQntAluno();
+            });
+             HSSFRow row=   sheet.createRow((short)i);
+                //row.createCell(0).setCellValue(mes + "/" + ano);
+                row.createCell(1).setCellValue(valor);
+                row.createCell(2).setCellValue(custo);
+                row.createCell(3).setCellValue(VaiAcontecer);
+                
+            }
+
+            FileOutputStream fileOut = new FileOutputStream(PathTillProject + "/src/ExportMensal.xls");
+            workbook.write(fileOut);
+            fileOut.close();
+            System.out.println("Seu arquivo excel foi gerado!");
+
+        } catch ( Exception ex ) {
+            System.out.println(ex);
+
+        }
     }
     
 }
-*/
