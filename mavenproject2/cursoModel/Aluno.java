@@ -3,6 +3,7 @@ public class Aluno extends Pessoa {
 	private String email;
 	private int codigo;
 	
+	
 	public Aluno(String Nome, String Matricula, String Endereco,
 			String telefone, String email, int codigo) {
 		super(Nome, Matricula, Endereco, telefone);

@@ -1,3 +1,5 @@
+package CursoModel;
+
 import java.time.LocalDateTime;
 public class Turma {
 	private String id;
