@@ -12,6 +12,12 @@ public abstract class Pessoa {
 		this.Matricula = Matricula;
 		this.telefone = telefone;
 	}
+
+    @Override
+    public String toString() {
+        return this.Nome +" "+ this.Matricula +" "+ this.Endereco +" "+ this.telefone +" "; //To change body of generated methods, choose Tools | Templates.
+    }
+        
 	public String getEndereco() {
 		return Endereco;
 	}

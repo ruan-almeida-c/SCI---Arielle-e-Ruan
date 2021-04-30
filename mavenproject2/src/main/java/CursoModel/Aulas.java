@@ -1,8 +1,15 @@
 package CursoModel;
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
+=======
+>>>>>>> e98750504c81b5bc03b477d20374cd93aaf95418
+import java.util.Date;
+>>>>>>> 3baf791a631a252bd43a8620d937d99d00a6012e
 
 
 public class Aulas {
