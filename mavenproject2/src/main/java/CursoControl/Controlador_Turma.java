@@ -53,6 +53,11 @@ public class Controlador_Turma {
             return listaTurmas.toString();
         }
         
+        public ArrayList<Turma> ConsultaListaTurma(){
+            ArrayList<Turma> listaTemp = new ArrayList();
+            return listaTemp;
+        }
+        
         public void consultarAlunosTurma(String idTurma){
             for(int i = 0;i<listaTurmas.size();i++){
                 if(listaTurmas.get(i).getId().equals(idTurma)){

@@ -2,9 +2,9 @@ package CursoModel;
 import CursoModel.Aulas;
 import CursoModel.Turma;
 
+
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import  org.apache.poi.hssf.usermodel.HSSFSheet;
 import  org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import  org.apache.poi.hssf.usermodel.HSSFRow;
@@ -44,7 +44,7 @@ public class Relatorio {
             });
             
             turmas.forEach(turma -> {
-                //valor = turma.getPreco() * turma.getQntAluno();
+                valor = turma.getPreco() * turma.getQntAluno();
             });
             
              HSSFRow row=   sheet.createRow((short)1);
@@ -84,16 +84,16 @@ public class Relatorio {
             for(i=1; i<=12; i++){
             aulas.forEach(aula -> {
                 custo = aula.CustoTotal();
-                    if(/*aula.getDataInicio().getMonthValue() > i && aula.getDataInicio().getDayOfYear() > ano*/ true){
+                    if(aula.getDataInicio().getMonthValue() > i && aula.getDataInicio().getDayOfYear() > ano){
                     VaiAcontecer = aula.getCusto();
                 }
             });
             
             turmas.forEach(turma -> {
-                //valor = turma.getPreco() * turma.getQntAluno();
+                valor = turma.getPreco() * turma.getQntAluno();
             });
              HSSFRow row=   sheet.createRow((short)i);
-                //row.createCell(0).setCellValue(mes + "/" + ano);
+                row.createCell(0).setCellValue(i + "/" + ano);
                 row.createCell(1).setCellValue(valor);
                 row.createCell(2).setCellValue(custo);
                 row.createCell(3).setCellValue(VaiAcontecer);

@@ -2,6 +2,7 @@ package CursoModel;
 
 import java.util.ArrayList;
 
+
 public class Aluno extends Pessoa {
 	private String email;
 	private int codigo;
