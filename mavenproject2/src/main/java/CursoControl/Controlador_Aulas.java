@@ -15,6 +15,7 @@ public class Controlador_Aulas {
     }
     
     public void adicionarAula(char Id, Professor professor){
+        
         ListaDeAulas.add(new Aulas(Id, professor));
     }
     public Aulas consultarAulas(char Id){
